@@ -6,10 +6,15 @@ import {
   NavbarContent,
   NavbarItem,
   Button,
+  menuItem,
 } from "@nextui-org/react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
+import { MenuItem } from "@nextui-org/react";
+import { title } from "process";
+import path from "path";
+import { navbarItem } from "@/types/menu";
 
 export default function NavbarComponent() {
   const pathname = usePathname();
@@ -22,36 +27,21 @@ export default function NavbarComponent() {
           <p className="font-bold text-inherit">ACME</p>
         </NavbarBrand>
         <NavbarContent className="hidden sm:flex gap-4" justify="center">
-          <NavbarItem>
-            <Link
+        {
+              navbarItem.map((item,index)=>(
+                <NavbarItem key={index}>
+               <Link  
               color="foreground"
-              href="/"
-              className={`${pathname === "/" && "font-bold text-blue-800"}`}
+              href={item.path}
+              className={`${pathname === item.path && "font-bold text-blue-800"}`}
             >
-              Home
+              {item.title}
             </Link>
-          </NavbarItem>
-          <NavbarItem>
-            <Link
-              className={`${
-                pathname === "/about-us" && "font-bold text-blue-800"
-              }`}
-              href={"./about-us"}
-            >
-              About
-            </Link>
-          </NavbarItem>
-          <NavbarItem>
-            <Link
-              className={`${
-                pathname === "/product" && "font-bold text-blue-800"
-              }`}
-              color="foreground"
-              href="/product"
-            >
-              Products
-            </Link>
-          </NavbarItem>
+            </NavbarItem>
+            
+              ))
+              }
+
         </NavbarContent>
         <NavbarContent justify="end">
           <NavbarItem className="hidden lg:flex">

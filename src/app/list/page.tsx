@@ -1,20 +1,23 @@
-'use client'
- 
-import { useSearchParams } from 'next/navigation'
- 
-export default function SortProducts() {
-  const searchParams = useSearchParams()
- 
-  function updateSorting(sortOrder: string) {
-    const params = new URLSearchParams(searchParams.toString())
-    params.set('sort', sortOrder)
-    window.history.pushState(null, '', `?${params.toString()}`)
-  }
- 
+import React from 'react';
+import ListPage from './ListPage';
+import { Metadata } from 'next';
+export const metadata: Metadata = {
+  icons: {
+    icon: "/assets/pic.jpg",
+  },
+  title: "List",
+  description: "This is description shop",
+  keywords: "myshop, shop, product, product shop, shop product, shop product shop",
+};
+
+
+
+const page = () => {
   return (
-    <>
-      <button onClick={() => updateSorting('asc')}>Sort Ascending</button>
-      <button onClick={() => updateSorting('desc')}>Sort Descending</button>
-    </>
-  )
+    <div>
+      <ListPage/>
+    </div>
+  );
 }
+
+export default page;
