@@ -1,7 +1,7 @@
 "use client";
 
 import { Sidebar } from "flowbite-react";
-import { sideBarItem } from "./sidebarMenu";
+import  {sideBarItem}  from "./sidebarMenu";
 
 export default function DashboardSidebar() {
   return (
