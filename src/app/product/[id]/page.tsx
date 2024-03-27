@@ -31,6 +31,7 @@ async function page({params}:ParamProps){
     <div>
       <h1 className='font-bold text-xl'>
         Product title:{productDetail.title}
+        <img src={productDetail.thumnail} alt="" />
       </h1>
     </div>
   )

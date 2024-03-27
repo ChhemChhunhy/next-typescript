@@ -11,6 +11,7 @@ import Error from "./error";
 import StyledJsxRegistry from "./registry";
 
 
+
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -27,7 +28,7 @@ export const metadata: Metadata = {
     },
     description: "This is description E-Commerce website",
     images: [
-      "https://i.pinimg.com/736x/f6/99/5d/f6995d649dcf5c1ddf7c28560f8cad5b.jpg",
+      "https://i.pinimg.com/564x/2c/f8/59/2cf85993fc7ca2839a582f0a12e1bb93.jpg",
     ],
   },
 };
