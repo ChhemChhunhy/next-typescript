@@ -16,8 +16,14 @@ export default async function Home() {
 
   return (
     <>
+       <div className="flex justify-center gap-5">
+       <h1 className="font-bold text-large">Hello everyone</h1>
+        <h1 className="font-bold text-large">សួរស្តី</h1>
+        <h1 className="font-kantumruy">ជម្រាបសួរ</h1>
+       </div>
       <div className="mt-10 flex justify-center flex-wrap gap-5">
-        <h1 className="font-bold text-large">Hi</h1>
+        
+​​​​​​
         <Suspense fallback={<LoadingComponent/>} >
         {user?.map((user: UserType) => (
           <CardUserComponent

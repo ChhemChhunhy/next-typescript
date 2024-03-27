@@ -1,6 +1,6 @@
 
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Kantumruy_Pro, Poppins } from "next/font/google";
 import "./globals.css";
 import NextUILayout from "./NextUIProvider";
 import NavbarComponent from "@/components/layouts/NavbarComponent";
@@ -8,32 +8,45 @@ import { Suspense } from "react";
 import LoadingComponent from "./loading";
 import { ErrorBoundary } from "next/dist/client/components/error-boundary";
 import Error from "./error";
+import StyledJsxRegistry from "./registry";
 
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  icons: {
-    icon: "/assets/pic.jpg",
-  },
   title: {
-    template:"%s - Myshop",
-    default: "Myshop"
+    template: "%s - E-Commerce",
+    default: "E-Commerce",
   },
-  description: "This is description shop",
-  keywords: "myshop, shop, product, product shop, shop product, shop product shop",
-  openGraph:{
+  description: "This is description E-Commerce website",
+  keywords: ["shop", "ecommerce", "sell","shoes","store","products"],
+  openGraph: {
     title: {
-      template:"%s - Myshop",
-      default: "Myshop"
+      template: "%s - E-Commerce",
+      default: "E-Commerce",
     },
-    description: "This is description shop",
+    description: "This is description E-Commerce website",
     images: [
-     'https://i.pinimg.com/236x/d8/a3/d3/d8a3d372412ebd218ae3cb705d25645e.jpg'
+      "https://i.pinimg.com/736x/f6/99/5d/f6995d649dcf5c1ddf7c28560f8cad5b.jpg",
     ],
-   
-  }
+  },
 };
+
+
+const poppins = Poppins({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600","900"],
+  display: "swap",
+  style: ["italic", "normal"],
+  variable: "--font-poppins",
+});
+
+const kantumruy_pro = Kantumruy_Pro({
+  subsets: ["khmer"],
+  display: "swap",
+  variable: "--font-kantumruy-pro",
+});
+
 
 export default function RootLayout({
   children,
@@ -42,16 +55,17 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={`${poppins.variable} ${kantumruy_pro.variable}`}>
         <NextUILayout>
+        <StyledJsxRegistry>
         <NavbarComponent />
           <Suspense fallback={<LoadingComponent/>}>
             <ErrorBoundary errorComponent={Error}>
             {children}
             </ErrorBoundary>
           {/* {children} */}
-
          </Suspense>
+         </StyledJsxRegistry>
         </NextUILayout>
       </body>
     </html>

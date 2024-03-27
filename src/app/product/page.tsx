@@ -4,6 +4,7 @@ import CardComponent from "@/components/cards/CardComponent";
 import { ProductType } from "@/types/product";
 import { Suspense } from "react";
 import LoadingComponent from '../loading';
+import { Metadata } from 'next';
 
 async function fetchProduct() {
   const product = await fetch("https://dummyjson.com/products", {
@@ -12,6 +13,14 @@ async function fetchProduct() {
   const res = await product.json();
   return res.products;
 }
+
+export const metadata:Metadata ={
+  title: "Product",
+  description: "This is  About us page",
+  keywords: ["shop", "ecommerce", "sell","shoes","store","products"]
+};
+
+
 export default async function page () {
   const product = await fetchProduct();
  

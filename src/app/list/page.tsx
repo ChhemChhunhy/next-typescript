@@ -6,7 +6,7 @@ export const metadata: Metadata = {
     icon: "/assets/pic.jpg",
   },
   title: "List",
-  description: "This is description shop",
+  description: "This is list page",
   keywords: "myshop, shop, product, product shop, shop product, shop product shop",
 };
 
